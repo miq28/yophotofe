@@ -1,0 +1,54 @@
+.contestEntries {
+    flex: 3.5;
+  }
+  
+  .contestEntriesWrapper {
+    padding: 20px 20px 0 0;
+  }
+
+  .contestEntriesTitle{
+      margin-bottom: 20px;
+  }
+  
+  .contestEntriesFriendList {
+    padding: 0;
+    margin: 0;
+    list-style: none;
+  }
+  
+  .contestEntriesTitle{
+    text-align: center;
+    margin: 10px;
+    font-size: 28px;
+    font-family: "Lora", sans-serif;
+    color: #be9656;
+    font-weight: bold;
+  }
+  
+  .contestEntriesInfo{
+    margin-bottom: 30px;
+  }
+  
+  .contestEntriesInfoItem{
+    margin-bottom: 10px;
+  }
+  
+  .contestEntriesInfoKey{
+    font-weight: 500;
+    margin-right: 15px;
+    color: #555;
+  }
+  
+  .contestEntriesInfoValue{
+    font-weight: 300;
+  }
+  
+  .contestEntriesFollowings{
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+    margin: 10px;
+    cursor: pointer;
+  }
+  
+  

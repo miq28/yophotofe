@@ -1,0 +1,341 @@
+.dashboard-background {
+  background-image: url(../img/dummy-img/dummy1.png);
+  background-repeat: no-repeat;
+  -webkit-background-size: cover;
+  -moz-background-size: cover;
+  -o-background-size: cover;
+  background-size: cover;
+  height: 330px;
+  background-position: center;
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  align-items: center;
+  .dashboard-background-container {
+    grid-column: 2 / 3;
+    margin-bottom: 30px;
+    .dashboard-logo {
+      text-align: center;
+      margin-bottom: 20px;
+      img {
+        width: 100px;
+        height: 100px;
+        object-fit: cover;
+      }
+    }
+    .dashboard-name {
+      text-align: center;
+      color: #ffffff;
+      margin-bottom: 20px;
+      font-size: 24px;
+      font-style: normal;
+      font-weight: 700;
+      line-height: 25px;
+    }
+    .dashboard-button {
+      text-align: center;
+      .dashboard-button-btn {
+        width: 171px;
+        height: 42px;
+        background-color: transparent;
+        color: #ffffff;
+        border: 1px solid #999999;
+      }
+    }
+  }
+  @media (max-width: 992px) {
+    margin-top: 60px;
+  }
+  @media (min-width: 992px) {
+    margin-top: 76px;
+  }
+}
+.dashboard-main {
+  .dashboard-wrapper {
+    width: 100%;
+    max-width: 1300px;
+    margin: 0 auto;
+    .dashboard-title {
+      font-size: 24px;
+      font-style: normal;
+      font-weight: 700;
+      color: #000000;
+    }
+    .recent-collections {
+      background-color: #f8f8f8;
+      .recent-collections-title {
+        font-size: 16px;
+        font-style: normal;
+        font-weight: 500;
+        color: #000000;
+      }
+      .recent-collections-seeall {
+        font-size: 12px;
+        font-style: normal;
+        font-weight: 500;
+        color: #999999;
+        text-align: center;
+        text-decoration: underline;
+      }
+    }
+    .recent-projects-packages-wrapper {
+      margin-top: 50px;
+      margin-bottom: 50px;
+      .recent-projects {
+        background-color: #f8f8f8;
+        flex-basis: 45%;
+        height: fit-content;
+        .recent-projects-title {
+          font-size: 16px;
+          font-style: normal;
+          font-weight: 500;
+          color: #000000;
+        }
+        .recent-projects-seeall {
+          font-size: 12px;
+          font-style: normal;
+          font-weight: 500;
+          color: #999999;
+          text-align: center;
+          text-decoration: underline;
+        }
+      }
+      .recent-packages {
+        background-color: #f8f8f8;
+        flex-basis: 45%;
+        height: fit-content;
+        .recent-packages-title {
+          font-size: 16px;
+          font-style: normal;
+          font-weight: 500;
+          color: #000000;
+        }
+        .recent-packages-seeall {
+          font-size: 12px;
+          font-style: normal;
+          font-weight: 500;
+          color: #999999;
+          text-align: center;
+          text-decoration: underline;
+        }
+      }
+    }
+  }
+  @media (max-width: 650px) {
+    padding: 20px 10px 50px 10px;
+    .rcollections-wrapper {
+      flex-direction: column;
+    }
+    .recent-collections {
+      margin-top: 20px;
+      padding: 20px 5px 30px 5px;
+    }
+    .recent-projects {
+      margin-bottom: 50px;
+      padding: 20px 5px 30px 5px;
+    }
+    .recent-packages {
+      padding: 20px 5px 30px 5px;
+    }
+    .cards-preview {
+      span {
+        display: none;
+      }
+    }
+  }
+  @media (min-width: 650px) and (max-width: 1100px) {
+    padding: 100px 80px;
+    .rcollections-cards {
+      flex-basis: 45%;
+    }
+    .rcollections-wrapper {
+      flex-direction: column;
+    }
+    .recent-collections {
+      margin-top: 50px;
+      padding: 30px;
+    }
+    .recent-projects {
+      padding: 30px;
+      margin-bottom: 50px;
+    }
+    .recent-packages {
+      padding: 30px;
+    }
+  }
+  @media (min-width: 1100px) {
+    padding: 100px 150px 200px 150px;
+    .rcollections-cards {
+      flex-basis: 45%;
+    }
+    .recent-projects-packages-wrapper {
+      display: flex;
+      justify-content: space-between;
+    }
+    .rcollections-wrapper {
+      flex-wrap: wrap;
+    }
+    .recent-collections {
+      margin-top: 50px;
+      padding: 20px 30px;
+    }
+    .recent-projects {
+      padding: 20px 30px;
+    }
+    .recent-packages {
+      padding: 20px 30px;
+    }
+  }
+  .rpackages-wrapper {
+    margin-top: 20px;
+    margin-bottom: 30px;
+    display: flex;
+    flex-direction: column;
+    row-gap: 30px;
+    .rpackages-cards {
+      display: flex;
+      background-color: #ffffff;
+      .rpackages-image {
+        img {
+          height: 120px;
+          width: 120px;
+          object-fit: cover;
+        }
+      }
+      .rpackages-text {
+        padding: 10px 20px;
+        flex-grow: 1;
+        .rpackages-name {
+          font-size: 14px;
+          font-weight: bold;
+          color: #000000;
+        }
+        .rpackages-itemcount {
+          font-size: 12px;
+          color: #999999;
+        }
+        .rpackages-priceedit {
+          display: flex;
+          justify-content: space-between;
+          padding-top: 30px;
+          .rpackages-price {
+            font-size: 14px;
+            color: #000000;
+            // padding-top: 10px;
+          }
+        }
+      }
+    }
+  }
+  .rprojects-wrapper {
+    margin-top: 20px;
+    margin-bottom: 30px;
+    display: flex;
+    flex-direction: column;
+    row-gap: 30px;
+    .rprojects-cards {
+      background-color: #ffffff;
+      padding: 10px 20px;
+      height: 120px;
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between;
+      .cards-top-wrapper {
+        display: flex;
+        justify-content: space-between;
+        .cards-name-date {
+          .cards-name {
+            font-size: 14px;
+            font-weight: bold;
+            color: #000000;
+          }
+          .cards-date {
+            font-size: 12px;
+            color: #999999;
+          }
+        }
+        .cards-planned {
+          color: white;
+          font-size: 12px;
+          padding: 1px 5px 0px 5px;
+          background: #3e89ae;
+          border-radius: 4px;
+          height: 20px;
+          width: 60px;
+        }
+      }
+      .cards-bottom-wrapper {
+        display: flex;
+        justify-content: space-between;
+        .cards-packages-rundown-invoice {
+          font-size: 12px;
+          span {
+            margin-right: 10px;
+          }
+        }
+      }
+    }
+  }
+  .rcollections-wrapper {
+    margin-top: 30px;
+    margin-bottom: 40px;
+    display: flex;
+    row-gap: 30px;
+    justify-content: space-between;
+    .rcollections-cards {
+      display: flex;
+      background-color: #ffffff;
+      .cards-img {
+        img {
+          height: 120px;
+          width: 120px;
+          object-fit: cover;
+        }
+      }
+      .cards-content {
+        flex-grow: 1;
+        display: flex;
+        flex-direction: column;
+        justify-content: space-between;
+        padding: 10px 20px;
+        .cards-top-wrapper {
+          display: flex;
+          justify-content: space-between;
+          .cards-name-date {
+            .cards-name {
+              font-size: 14px;
+              font-weight: bold;
+              color: #000000;
+            }
+            .cards-date {
+              font-size: 12px;
+              color: #999999;
+            }
+          }
+          .cards-preview {
+            a {
+              font-size: 12px;
+              color: #999999;
+            }
+            a:hover {
+              text-decoration: none;
+            }
+          }
+        }
+        .cards-bottom-wrapper {
+          display: flex;
+          justify-content: space-between;
+          .cards-img-down {
+            font-size: 12px;
+            color: #000000;
+          }
+        }
+      }
+    }
+  }
+  .cards-no-content {
+    color: #999999;
+    text-align: center;
+    font-size: 16px;
+    flex-grow: 1;
+  }
+}

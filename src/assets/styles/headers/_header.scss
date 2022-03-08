@@ -1,0 +1,134 @@
+.port-header {
+  z-index: 1;
+
+  @media (max-width: 992px) {
+    background: $color-wheat;
+    position: fixed;
+    top: 0;
+    width: 100%;
+    border-width: 0;
+    border-top-width: 4px;
+    border-style: solid;
+    border-image: linear-gradient(260.06deg, #0e203d 10.76%, #eab197 94.23%) 3;
+
+    .port-header-logo {
+      img {
+        width: 150px;
+        height: 100%;
+      }
+    }
+
+    .port-header-nav {
+      color: $color-brand-primary;
+      font-weight: bold;
+      padding-top: 10px;
+      padding-bottom: 10px;
+
+      a {
+        text-decoration: none;
+        color: $color-brand-primary;
+      }
+
+      button {
+        padding: 5px 20px 5px 20px;
+        border: 1px solid #0e203d;
+        box-sizing: border-box;
+        font-weight: bold;
+      }
+
+      .port-header-collection {
+        padding-bottom: 5px;
+      }
+
+      .port-header-products {
+        padding-bottom: 5px;
+      }
+
+      .port-header-package {
+        padding-bottom: 5px;
+      }
+
+      .port-header-bell {
+        padding-bottom: 5px;
+        display: none;
+      }
+
+      .port-header-user {
+        padding-bottom: 5px;
+        display: none;
+      }
+
+      .port-header-bell-notif {
+        padding-bottom: 5px;
+      }
+
+      .port-header-user-profile {
+        padding-bottom: 5px;
+      }
+    }
+  }
+
+  @media (min-width: 992px) {
+    background: $color-wheat;
+    position: fixed;
+    top: 0;
+    width: 100%;
+    padding-top: 6px;
+    padding-bottom: 6px;
+    border-width: 0;
+    border-top-width: 4px;
+    border-style: solid;
+    border-image: linear-gradient(260.06deg, #0e203d 10.76%, #eab197 94.23%) 3;
+
+    .port-header-logo {
+      padding-left: 45px;
+
+      img {
+        width: 150px;
+        height: 100%;
+      }
+    }
+
+    .port-header-nav {
+      display: flex;
+      margin-left: auto;
+      color: $color-brand-primary;
+      font-weight: bold;
+      align-items: center;
+      padding-top: 10px;
+      padding-bottom: 10px;
+
+      a {
+        text-decoration: none;
+        color: $color-brand-primary;
+
+        &:active {
+          color: #c2a47e;
+        }
+
+        &:hover {
+          color: #c2a47e;
+        }
+      }
+
+      button {
+        padding: 5px 20px 5px 20px;
+        border: 1px solid #0e203d;
+        box-sizing: border-box;
+        font-weight: bold;
+      }
+      .port-header-bell-notif {
+        display: none;
+      }
+      .port-header-user-profile {
+        display: none;
+      }
+    }
+  }
+}
+
+.header-link-active {
+  a {
+    color: #c2a47e !important;
+  }
+}

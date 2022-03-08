@@ -1,0 +1,174 @@
+@import url('https://fonts.googleapis.com/css?family=Montserrat');
+@import './variables';
+@import './footer';
+@import './home';
+@import './loginRegister';
+@import './privacy';
+@import './download';
+@import './dashboard';
+@import './profile';
+@import './galleryAll';
+@import './switch';
+@import './galleryPhoto';
+@import './simplePopover';
+@import './notfound';
+// Templates Import
+@import './templates/tempMinimalism';
+@import './templates/tempClassic';
+@import './templates/tempDarkmode';
+// Invoices Import
+@import './invoices/invoiceNew';
+@import './invoices/invoiceEdit';
+@import './invoices/invoicePreview';
+@import './invoices/invoicePaid';
+// Headers Import
+@import './headers/header';
+@import './headers/headerProps';
+@import './headers/headerHome';
+@import './headers/headerUser';
+// Packages Import
+@import './packages/packages';
+@import './packages/packagesNew';
+@import './packages/packagesEdit';
+// Collections Import
+@import './collections/collections';
+@import './collections/collectionNew';
+@import './collections/collectionEdit';
+// Projects Import
+@import './projects/projectNew';
+@import './projects/projectEdit';
+@import './projects/projects';
+@import './projects/projectDetails';
+@import './projects/components/packageModal';
+@import './projects/components/projectInvoice';
+@import './projects/components/projectPackages';
+@import './projects/components/projectRundown';
+
+* {
+  margin: 0;
+  padding: 0;
+  font-family: 'Montserrat';
+}
+
+.color-ash {
+  color: $color-ash;
+}
+
+.color-gold {
+  color: $color-gold;
+}
+
+.cursor-pointer {
+  &:hover {
+    cursor: pointer;
+  }
+}
+
+.button-none {
+  background: none;
+  border: none;
+}
+
+.custom-form-port {
+  border-radius: 0;
+  border: 0;
+  border-bottom: 2px solid $color-ash;
+  background: #fcfcfc;
+  height: 42px;
+  padding-left: 20px;
+  padding-right: 20px;
+
+  &:focus {
+    box-shadow: none !important;
+    border-bottom: 2px solid black;
+    background: #fcfcfc;
+  }
+}
+
+.loader {
+  @media (max-width: 400px) {
+    left: 38% !important;
+  }
+
+  @media (max-width: 650px) {
+    left: 40% !important;
+  }
+
+  @media (min-width: 650px) and (max-width: 970px) {
+    left: 44% !important;
+  }
+
+  position: absolute;
+  left: 46%;
+  top: 30%;
+  z-index: 1;
+  border: 16px solid #f3f3f3;
+  border-radius: 50%;
+  border-top: 16px solid #0e203d;
+  width: 120px;
+  height: 120px;
+  -webkit-animation: spin 2s linear infinite; /* Safari */
+  animation: spin 2s linear infinite;
+
+  @-webkit-keyframes spin {
+    0% {
+      -webkit-transform: rotate(0deg);
+    }
+    100% {
+      -webkit-transform: rotate(360deg);
+    }
+  }
+
+  @keyframes spin {
+    0% {
+      transform: rotate(0deg);
+    }
+    100% {
+      transform: rotate(360deg);
+    }
+  }
+}
+
+.loader-project {
+  @media (max-width: 400px) {
+    left: 38% !important;
+  }
+
+  @media (max-width: 650px) {
+    left: 40% !important;
+  }
+
+  @media (min-width: 650px) and (max-width: 970px) {
+    left: 44% !important;
+  }
+
+  position: absolute;
+  left: 45%;
+  top: 45%;
+  z-index: 1;
+  border: 16px solid #f3f3f3;
+  border-radius: 50%;
+  border-top: 16px solid #0e203d;
+  width: 120px;
+  height: 120px;
+  -webkit-animation: spin 2s linear infinite; /* Safari */
+  animation: spin 2s linear infinite;
+
+  @-webkit-keyframes spin {
+    0% {
+      -webkit-transform: rotate(0deg);
+    }
+    100% {
+      -webkit-transform: rotate(360deg);
+    }
+  }
+
+  @keyframes spin {
+    0% {
+      transform: rotate(0deg);
+    }
+    100% {
+      transform: rotate(360deg);
+    }
+  }
+}

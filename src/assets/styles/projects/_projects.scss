@@ -1,0 +1,229 @@
+.projects-wrapper {
+  @media (max-width: 650px) {
+    padding: 100px 20px;
+
+    .projects-content {
+      .content-items {
+        .item-content {
+          display: block !important;
+
+          .item-left-wrapper {
+            width: 100% !important;
+            padding-bottom: 10px;
+          }
+
+          .item-left-wrapper-empty {
+            width: 100% !important;
+            padding-bottom: 10px;
+          }
+
+          .item-right-wrapper {
+            width: 100% !important;
+            margin-left: auto !important;
+          }
+        }
+      }
+    }
+  }
+
+  @media (min-width: 650px) and (max-width: 1100px) {
+    padding: 155px 70px;
+
+    .projects-content {
+      .content-items {
+        .item-content {
+          display: block !important;
+
+          .item-left-wrapper {
+            width: 100% !important;
+            padding-bottom: 10px;
+          }
+
+          .item-left-wrapper-empty {
+            width: 100% !important;
+            padding-bottom: 10px;
+          }
+
+          .item-right-wrapper {
+            width: 100% !important;
+            margin-left: auto !important;
+          }
+        }
+      }
+    }
+  }
+
+  @media (min-width: 1100px) {
+    padding: 155px 200px;
+  }
+
+  .projects-content {
+    max-width: 1300px;
+    margin: 0 auto;
+
+    .content-items {
+      margin-bottom: 20px;
+
+      .item-header {
+        display: flex;
+        justify-content: space-between;
+        padding-bottom: 10px;
+        align-items: center;
+
+        .item-header-planned {
+          color: white;
+          font-size: 12px;
+          padding: 5px 9px 4px 9px;
+          background: #3e89ae;
+          border-radius: 4px;
+        }
+
+        .item-header-completed {
+          color: white;
+          font-size: 12px;
+          padding: 5px 9px 4px 9px;
+          background: #44b70e;
+          border-radius: 4px;
+        }
+      }
+
+      .item-name {
+        font-weight: bold;
+        text-decoration: underline;
+      }
+
+      .item-date {
+        padding-bottom: 15px;
+        color: $color-ash;
+        font-size: 12px;
+      }
+
+      .item-content {
+        display: flex;
+
+        .item-left-wrapper {
+          width: 47%;
+
+          .item-packages {
+            display: flex;
+            justify-content: space-between;
+
+            .item-packages-name {
+              font-weight: bold;
+            }
+
+            .item-packages-link {
+              font-weight: 600;
+
+              button {
+                outline: none;
+                background: inherit;
+                color: black;
+                font-size: 12px;
+                border: none;
+              }
+
+              a {
+                font-size: 12px;
+                text-decoration: none;
+                color: black;
+              }
+            }
+          }
+
+          .item-packages-content {
+            padding-top: 10px;
+            padding-left: 23px;
+            color: $color-ash;
+            font-size: 12px;
+          }
+        }
+
+        .item-left-wrapper-empty {
+          width: 47%;
+
+          .item-packages {
+            display: flex;
+            justify-content: space-between;
+
+            .item-packages-name {
+              font-weight: bold;
+            }
+
+            .item-packages-link {
+              a {
+                font-size: 12px;
+                text-decoration: none;
+                color: #c2a47e;
+              }
+            }
+          }
+
+          .item-packages-content {
+            padding-top: 10px;
+            padding-left: 23px;
+            color: $color-ash;
+            font-size: 12px;
+            font-style: italic;
+          }
+        }
+
+        .item-right-wrapper {
+          width: 47%;
+          margin-left: 6%;
+
+          .item-rundown {
+            display: flex;
+            justify-content: space-between;
+            padding-bottom: 10px;
+
+            .item-rundown-name {
+              font-weight: bold;
+            }
+
+            .item-rundown-link {
+              a {
+                font-size: 12px;
+                text-decoration: none;
+                color: #c2a47e;
+              }
+            }
+          }
+
+          .item-invoice {
+            display: flex;
+            justify-content: space-between;
+
+            .item-invoice-name {
+              font-weight: bold;
+            }
+
+            .item-invoice-link {
+              button {
+                background: inherit;
+                border: none;
+                font-size: 12px;
+                outline: none;
+              }
+
+              a {
+                font-size: 12px;
+                text-decoration: none;
+                color: #c2a47e;
+              }
+            }
+          }
+        }
+      }
+    }
+  }
+
+  .projects-border {
+    border: 1px solid #999999;
+    margin-top: 30px;
+  }
+}
+
+.mdclose-styling {
+  margin-top: -3px;
+}
