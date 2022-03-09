@@ -6,3 +6,11 @@
     margin-left: 40px;
     margin-right: 40px;
 }
+
+.desc{
+    font-size: 10px;
+    font-weight: 500;
+    max-width: 500px;
+    padding: 0 20px;
+    text-align: center;
+}

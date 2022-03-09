@@ -32,9 +32,6 @@ export default function ContestBar({ profile }) {
         </div>
         <img className="rightbarAd" src="assets/ad.png" alt="" />
         <button className="upload">Upload Photo</button>
-        <ul className="rightbarFriendList">
-          
-        </ul>
       </>
     );
   };

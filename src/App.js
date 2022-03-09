@@ -2,40 +2,40 @@ import { Route, Switch } from 'react-router';
 import { useEffect } from 'react';
 import { useDispatch } from 'react-redux';
 import { URL_API } from './helper/url';
-import { toast, ToastContainer } from 'react-toastify';
+import { ToastContainer } from 'react-toastify';
 import Home from './pages/Home';
 import Register from './pages/Register';
 import Login from './pages/Login';
-import Privacy from './pages/Privacy';
-import Download from './pages/Download';
-import CollectionNew from './pages/CollectionNew';
-import Testing from './pages/Testing';
-import CollectionEdit from './pages/CollectionEdit';
+// import Privacy from './pages/Privacy';
+// import Download from './pages/Download';
+// import CollectionNew from './pages/CollectionNew';
+// import Testing from './pages/Testing';
+// import CollectionEdit from './pages/CollectionEdit';
 import Dashboard from './pages/Dashboard';
 import Profile from './pages/Profile';
-import ProjectNew from './pages/ProjectNew';
-import ProjectEdit from './pages/ProjectEdit';
-import Collections from './pages/Collections';
-import Projects from './pages/Projects';
+// import ProjectNew from './pages/ProjectNew';
+// import ProjectEdit from './pages/ProjectEdit';
+// import Collections from './pages/Collections';
+// import Projects from './pages/Projects';
 import GalleryAll from './pages/GalleryAll';
 import GalleryPhoto from './pages/GalleryPhoto';
 import axios from 'axios';
 import Homepage from './pages/homepage/HomePage';
-import Packages from './pages/Packages';
-import PackagesNew from './pages/PackagesNew';
-import PackagesEdit from './pages/PackagesEdit';
-import ProjectDetails from './pages/ProjectDetails';
-import InvoiceNew from './pages/invoices/InvoiceNew';
-import InvoiceEdit from './pages/invoices/InvoiceEdit';
+// import Packages from './pages/Packages';
+// import PackagesNew from './pages/PackagesNew';
+// import PackagesEdit from './pages/PackagesEdit';
+// import ProjectDetails from './pages/ProjectDetails';
+// import InvoiceNew from './pages/invoices/InvoiceNew';
+// import InvoiceEdit from './pages/invoices/InvoiceEdit';
 import NotFound from './pages/NotFound';
 import TempClassic from './pages/TempClassic';
-import TempDarkmode from './pages/TempDarkmode';
-import TempMinimalism from './pages/TempMinimalism';
+// import TempDarkmode from './pages/TempDarkmode';
+// import TempMinimalism from './pages/TempMinimalism';
 import 'react-toastify/dist/ReactToastify.css';
 import './assets/styles/style.scss';
 import 'react-awesome-lightbox/build/style.css';
-import InvoicePreview from './pages/invoices/InvoicePreview';
-import InvoicePaid from './pages/invoices/InvoicePaid';
+// import InvoicePreview from './pages/invoices/InvoicePreview';
+// import InvoicePaid from './pages/invoices/InvoicePaid';
 import NotLogin from './pages/NotLogin';
 import jwt_decode from "jwt-decode";
 import Contest from "./pages/contest/Contest"
@@ -129,17 +129,17 @@ function App() {
             component={GalleryPhoto}
           />
           <Route exact path="/temp/classic/:id" component={TempClassic} />
-          <Route exact path="/temp/minimalism/:id" component={TempMinimalism} />
-          <Route exact path="/temp/darkmode/:id" component={TempDarkmode} />
-          <Route exact path="/privacy/:id" component={Privacy} />
-          <Route exact path="/download/:id" component={Download} />
-          <Route exact path="/collections" component={NotLogin} />
+          {/* <Route exact path="/temp/minimalism/:id" component={TempMinimalism} />
+          <Route exact path="/temp/darkmode/:id" component={TempDarkmode} /> */}
+          {/* <Route exact path="/privacy/:id" component={Privacy} /> */}
+          {/* <Route exact path="/download/:id" component={Download} /> */}
+          {/* <Route exact path="/collections" component={NotLogin} />
           <Route exact path="/collections/new" component={NotLogin} />
           <Route exact path="/collections/edit/:id" component={NotLogin} />
-          <Route exact path="/testing" component={NotLogin} />
+          <Route exact path="/testing" component={NotLogin} /> */}
           <Route exact path="/dashboard" component={NotLogin} />
           <Route exact path="/profile" component={NotLogin} />
-          <Route exact path="/projects/new" component={NotLogin} />
+          {/* <Route exact path="/projects/new" component={NotLogin} />
           <Route exact path="/projects/edit/:id" component={NotLogin} />
           <Route exact path="/projects/details/:id" component={NotLogin} />
           <Route exact path="/projects" component={NotLogin} />
@@ -149,7 +149,7 @@ function App() {
           <Route exact path="/invoice/new/:id" component={NotLogin} />
           <Route exact path="/invoice/edit/:id" component={NotLogin} />
           <Route exact path="/invoice/preview/:id" component={NotLogin} />
-          <Route exact path="/invoice/paid/:id" component={NotLogin} />
+          <Route exact path="/invoice/paid/:id" component={NotLogin} /> */}
           <Route exact path="/homepage" component={Homepage} />
           <Route exact path="/contest" component={Contest} />
           <Route path="*" component={NotFound} />
@@ -175,25 +175,25 @@ function App() {
         <Route exact path="/" component={Home} />
         <Route exact path="/register" component={Register} />
         <Route exact path="/login" component={Login} />
-        <Route exact path="/privacy/:id" component={Privacy} />
+        {/* <Route exact path="/privacy/:id" component={Privacy} />
         <Route exact path="/download/:id" component={Download} />
         <Route exact path="/collections" component={Collections} />
         <Route exact path="/collections/new" component={CollectionNew} />
         <Route exact path="/collections/edit/:id" component={CollectionEdit} />
-        <Route exact path="/testing" component={Testing} />
+        <Route exact path="/testing" component={Testing} /> */}
         <Route exact path="/dashboard" component={Dashboard} />
         <Route exact path="/profile" component={Profile} />
-        <Route exact path="/projects/new" component={ProjectNew} />
+        {/* <Route exact path="/projects/new" component={ProjectNew} />
         <Route exact path="/projects/edit/:id" component={ProjectEdit} />
         <Route exact path="/projects/details/:id" component={ProjectDetails} />
-        <Route exact path="/projects" component={Projects} />
+        <Route exact path="/projects" component={Projects} /> */}
         <Route exact path="/gallery/all" component={GalleryAll} />
         <Route
           exact
           path="/gallery/photographer/:id"
           component={GalleryPhoto}
         />
-        <Route exact path="/packages" component={Packages} />
+        {/* <Route exact path="/packages" component={Packages} />
         <Route exact path="/packages/new" component={PackagesNew} />
         <Route exact path="/packages/edit/:id" component={PackagesEdit} />
         <Route exact path="/invoice/new/:id" component={InvoiceNew} />
@@ -202,7 +202,7 @@ function App() {
         <Route exact path="/invoice/paid/:id" component={InvoicePaid} />
         <Route exact path="/temp/classic/:id" component={TempClassic} />
         <Route exact path="/temp/minimalism/:id" component={TempMinimalism} />
-        <Route exact path="/temp/darkmode/:id" component={TempDarkmode} />
+        <Route exact path="/temp/darkmode/:id" component={TempDarkmode} /> */}
         <Route exact path="/homepage" component={Homepage} />
         
         <Route path="*" component={NotFound} />

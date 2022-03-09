@@ -1,9 +1,43 @@
 import "./rightbar.css";
-import { Users , Contests } from "../../dummyData";
+import { Users, Contests } from "../../dummyData";
 import User from "../user/User"
 import ListContest from "../listContest/ListContest"
+import { useEffect, useState } from "react"
+import { useDispatch } from "react-redux"
+import axios from "axios"
+import { URL_API } from "../../helper/url"
+import { toastError } from "../../redux/actions/toastActions"
+
 
 export default function Rightbar() {
+  const [userCollections, setUserCollections] = useState([])
+  const dispatch = useDispatch
+
+  useEffect(() => {
+    fetchDataAllUser();
+  }, []); // eslint-disable-line react-hooks/exhaustive-deps
+
+  async function fetchDataAllUser() {
+    try {
+      const res = await axios.get(`${URL_API}/users/profile`)
+      const userAll = res.data.result;
+
+      console.log(userAll);
+      setUserCollections(userAll);
+
+      console.log(userCollections.map((u) => (
+        <User key={u.userId} user={u} />
+      )))
+    } catch (error) {
+      if (error.response) {
+        dispatch(toastError(`${error.response.data.message}`));
+        console.log(error.response.data.message);
+      } else {
+        console.log(`Error`, error.message);
+      }
+    }
+  }
+
   const HomeRightbar = () => {
     return (
       <>
@@ -16,8 +50,13 @@ export default function Rightbar() {
         <h2 className="rightbarSeeAll">See All</h2>
         <hr className="rightbarHr" />
         <ul className="rightbarUserList">
-          {Users.map((u) => (
-            <User key={u.id} user={u} />
+          {userCollections.map(profile => (
+            <li className="rightbarUser" key={profile.userId}>
+              <div className="rightbarProfileImgContainer">
+                <img className="rightbarProfileImg" src={profile.profilePhoto} alt="" />
+              </div>
+              <span className="rightbarUsername">{profile.name}</span>
+            </li>
           ))}
         </ul>
         <h4 className="rightbarTitle">LIST CONTEST</h4>
@@ -28,15 +67,13 @@ export default function Rightbar() {
             <ListContest key={u.id} contest={u} />
           ))}
         </ul>
-        
-        
       </>
     );
   };
   return (
     <div className="rightbar">
       <div className="rightbarWrapper">
-        <HomeRightbar/>
+        <HomeRightbar />
       </div>
     </div>
   );

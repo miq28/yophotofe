@@ -10,7 +10,7 @@ import Logo from '../assets/img/logo.png';
 function Login() {
   const [isLoading, setIsLoading] = useState(false);
   const [name, setName] = useState('');
-  const [bsName, setBsName] = useState('');
+  // const [bsName, setBsName] = useState('');
   const [email, setEmail] = useState('');
   const [password, setPassword] = useState('');
   const history = useHistory();
@@ -27,17 +27,24 @@ function Login() {
     var data = {
       email: email,
       password: password,
-      username: name,
+      userName: name,
     };
     // const response = await axios.post(`${URL_API}/users/signup`, data);
     // console.log(response);
     axios
       .post(`${URL_API}/users/signup`, data)
       .then((res) => {
+        const respond = res.data.result
         dispatch(
           toastSuccess('Success! You are now logged in with your new account!')
         );
-        localStorage.setItem('token', res.data.token);
+
+        if (respond && respond.token) {
+          localStorage.setItem('token', respond.token);
+        } else {
+          throw new Error('No token received from backend')
+        }
+
         setTimeout(() => {
           window.location = '/HomePage';
         }, 3000);
@@ -99,7 +106,7 @@ function Login() {
                   required
                   type="password"
                   value={password}
-                  placeholder="********"
+                  placeholder=""
                   onChange={(e) => setPassword(e.target.value)}
                 />
               </Form.Group>
