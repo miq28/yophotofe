@@ -1,59 +1,48 @@
 import React, { useEffect, useState } from 'react';
 import { Navbar } from 'react-bootstrap';
 import { Link } from 'react-router-dom';
-import { useDispatch } from 'react-redux';
+import { useDispatch, useSelector } from 'react-redux';
 import { toastWarning } from '../redux/actions';
-import Logo from '../assets/img/yophoto.png';
-import LogoBell from '../assets/img/header/logo_bell.png';
+import Logo from '../assets/img/portraiture.png';
+import LogologOut from '../assets/img/header/logo_logOut.png';
 import LogoUser from '../assets/img/header/logo_user.png';
+import { toastSuccess } from './../redux/actions/toastActions';
 
-function Header() {
+function HeaderLogin() {
   const [page, setPage] = useState('');
+  const auth = useSelector((state) => state.auth);
   const dispatch = useDispatch();
-
-  useEffect(() => {
-    getUrl();
-  }, []);
-
-  const getUrl = () => {
-    let url = window.location.href;
-    let result = url.match(/[^\/]+$/); // eslint-disable-line
-    setPage(result[0]);
-  };
-
   const onNotifClick = () => {
     dispatch(toastWarning('Feature in development! Please try again later'));
+  };
+
+  const handleLogout = () => {
+    dispatch(toastSuccess('You are now logged out!'));
+    setTimeout(() => {
+      localStorage.removeItem('token');
+      dispatch({
+        type: 'LOGOUT',
+      }); window.location = '/';
+    }, 2000);
   };
 
   return (
     <div className="port-header">
       <Navbar expand="lg">
         <div className="port-header-logo">
-          <Link to="/">
+          <Link to="/homepage">
             <img src={Logo} alt="logohome" />
           </Link>
         </div>
         <Navbar.Toggle aria-controls="basic-navbar-nav" />
         <Navbar.Collapse id="basic-navbar-nav">
           <div className="port-header-nav">
-            <div
-              className={`port-header-products pr-3 ${
-                page === 'projects' ? 'header-link-active' : null
-              }`}
-            >
+            <div className={`port-header-products pr-3 ${page === 'projects' ? 'header-link-active' : null}`}>
               <Link to="/projects">Contest</Link>
             </div>
-            <div
-              className={`port-header-package pr-5 ${
-                page === 'packages' ? 'header-link-active' : null
-              }`}
+            <div className={`port-header-package pr-5 ${page === 'packages' ? 'header-link-active' : null}`}
             >
               <Link to="/gallery/all">Gallery</Link>
-            </div>
-            <div className="port-header-bell pr-4">
-              <span onClick={onNotifClick} className="cursor-pointer">
-                <img src={LogoBell} alt="imageLogo" />
-              </span>
             </div>
             <div className="port-header-user pr-5">
               <Link to="/dashboard">
@@ -68,6 +57,9 @@ function Header() {
             <div className="port-header-user-profile pr-5">
               <Link to="/dashboard">Profile</Link>
             </div>
+            <div className="port-header-user pr-5, cursor-pointer" onClick={handleLogout}>
+              <img src={LogologOut} alt="imageLogo" />
+            </div>
           </div>
         </Navbar.Collapse>
       </Navbar>
@@ -75,4 +67,4 @@ function Header() {
   );
 }
 
-export default Header;
+export default HeaderLogin;

@@ -6,7 +6,7 @@ import { useDispatch } from 'react-redux';
 import { useHistory, useParams } from 'react-router-dom';
 import HeaderHome from '../components/HeaderHome';
 import Footer from '../components/Footer';
-import Pagination from '@material-ui/lab/Pagination';
+import Pagination from '@mui/lab/Pagination';
 
 function GalleryAll() {
   const [collections, setCollections] = useState([]);
@@ -24,19 +24,16 @@ function GalleryAll() {
   const fetchDataGalleryAll = async () => {
     setIsLoading(true);
     try {
-      //ini yang server 1
-      // let res = await axios.get(`${URL_API}/albums?skip=0&take=5`);
-      // setCollections(res.data.data);
-
-      //ini yang server 2
       let res = await axios.get(`${URL_API}/albums/galleryall?skip=0&take=1000`);
+      // let res = await axios.get(`${URL_API}/photos?limit=100`);
       const albumsAll = res.data.result
       console.log(albumsAll)
       storeAlbumsAll(albumsAll)
       let numTotal = albumsAll.length
       setPageNumber(Math.ceil(numTotal / 15));
+      console.log('pageNumber', pageNumber)
       let slicedAlbum = []
-      slicedAlbum = albumsAll.slice(0, 15)
+      slicedAlbum = albumsAll.slice(undefined, 15)
 
       setCollections(slicedAlbum);
       // let page = await fetchDataPage();
@@ -56,26 +53,17 @@ function GalleryAll() {
     // setCollections(defaultBack);
   };
 
-  // const fetchDataPage = () => {
-  //   return axios
-  //     .get(`${URL_API}/albums/galleryall`)
-  //     .then((res) => {
-  //       return res.data.result;
-  //     })
-  //     .catch((err) => {
-  //       dispatch(toastError(`${err.response.data.message}`));
-  //     });
-  // };
 
   const pageChange = async (event, value) => {
     setPage(value);
-    try {
-      const numTotal = albumsAll.length
-      let slicedAlbum = []
-      if (numTotal > 15) slicedAlbum = albumsAll.slice(15 * (value - 1), 15 * value)
+    const numTotal = albumsAll.length
+    const start = 15 * (value - 1)
+    const end = 15 * value
+    console.log('value=', value, 'start=', start, 'end=', end)
+    let slicedAlbum = []
+    if (numTotal > 15) {
+      slicedAlbum = albumsAll.slice(start, end)
       setCollections(slicedAlbum);
-    } catch (error) {
-      dispatch(toastError(`${error.response.data.message}`));
     }
   };
 
@@ -94,7 +82,7 @@ function GalleryAll() {
           />
           <div
             className="cards-text"
-            onClick={() => onStudioClick(val.albumId)}
+            onClick={() => onStudioClick(val.userId)}
           >
             <div className="cards-text1">{val.title}</div>
             <div className="cards-text2">{val.name}</div>

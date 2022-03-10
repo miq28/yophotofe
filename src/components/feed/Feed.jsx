@@ -35,7 +35,7 @@ export default function Feed() {
     <div className="feed">
       <div className="feedWrapper">
         <div className="feedUpload">
-          <button className="upload">Upload Photo</button>
+          <button className="uploadHome">Upload Photo</button>
           <p className="desc">
           Photos uploaded by photographers you follow are added to your feed. 
           Remember your photos will appear in your followers’ feeds too. A great way to get your work out there

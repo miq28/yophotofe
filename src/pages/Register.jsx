@@ -34,6 +34,7 @@ function Login() {
     axios
       .post(`${URL_API}/users/signup`, data)
       .then((res) => {
+        console.log(res)
         const respond = res.data.result
         dispatch(
           toastSuccess('Success! You are now logged in with your new account!')
@@ -50,6 +51,7 @@ function Login() {
         }, 3000);
       })
       .catch((err) => {
+        console.log(err)
         console.log(err.response.data)
         dispatch(toastError(`${err.response.data.message}`));
         setIsLoading(false);

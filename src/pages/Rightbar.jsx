@@ -19,15 +19,15 @@ export default function Rightbar() {
 
   async function fetchDataAllUser() {
     try {
-      const res = await axios.get(`${URL_API}/users/nested?skip=0&take=20`)
+      const res = await axios.get(`${URL_API}/users/profile`)
       const userAll = res.data.result;
 
       console.log(userAll);
       setUserCollections(userAll);
 
-      // console.log(userCollections.map((u) => (
-      //   <User key={u.userId} user={u} />
-      // )))
+      console.log(userCollections.map((u) => (
+        <User key={u.userId} user={u} />
+      )))
     } catch (error) {
       if (error.response) {
         dispatch(toastError(`${error.response.data.message}`));
@@ -50,12 +50,12 @@ export default function Rightbar() {
         <h2 className="rightbarSeeAll">See All</h2>
         <hr className="rightbarHr" />
         <ul className="rightbarUserList">
-          {userCollections.map(user => (
-            <li className="rightbarUser" key={user.id}>
+          {userCollections.map(profile => (
+            <li className="rightbarUser" key={profile.userId}>
               <div className="rightbarProfileImgContainer">
-                <img className="rightbarProfileImg" src={user.profile.profilePhoto} alt="" />
+                <img className="rightbarProfileImg" src={profile.profilePhoto} alt="" />
               </div>
-              <span className="rightbarUsername">{user.userName}</span>
+              <span className="rightbarUsername">{profile.name}</span>
             </li>
           ))}
         </ul>

@@ -1,0 +1,20 @@
+.userAll{
+    display: flex;
+}
+
+.userAllContainer{
+    margin-top: 70px;
+    display: flex;
+    background-color: white;
+    align-items: center;
+    justify-content: space-between;
+    flex-wrap: wrap;
+    cursor: pointer;
+    position: relative;
+}
+
+.userall-pagination{
+    margin-top: 80px;
+    display: flex;
+    justify-content: center;
+  }

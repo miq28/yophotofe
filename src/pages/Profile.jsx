@@ -180,8 +180,8 @@ function Profile() {
       <HeaderProps title="Edit Profile" link="/dashboard" />
       <div className="profile-container">
         <Form onSubmit={onSave} className="profile-inner-container">
-          <div className="profile-bd">Business Details</div>
-          <Form.Group>
+          <div className="profile-bd">Photographer Details</div>
+          {/* <Form.Group>
             <Form.Label className="profile-bn">Business Name*</Form.Label>
             <Form.Control
               autoFocus
@@ -191,18 +191,8 @@ function Profile() {
               onChange={(e) => setBusinessName(e.target.value)}
               placeholder={businessName}
             />
-          </Form.Group>
-          <Form.Group controlId="exampleForm.ControlTextarea1">
-            <Form.Label className="profile-ad">Address*</Form.Label>
-            <Form.Control
-              className="custom-form-port"
-              as="textarea"
-              rows={4}
-              placeholder={address}
-              value={address}
-              onChange={(e) => setAddress(e.target.value)}
-            />
-          </Form.Group>
+          </Form.Group> */}
+
           <div className="profile-photo">
             <div className="profile-photo-text">Images</div>
             <div className="profile-photo-upload">
@@ -216,7 +206,7 @@ function Profile() {
               )}
             </div>
           </div>
-          <div className="profile-ac">Account Details</div>
+
           <Form.Group>
             <Form.Label className="profile-name">Name*</Form.Label>
             <Form.Control
@@ -225,6 +215,17 @@ function Profile() {
               placeholder={name}
               value={name}
               onChange={(e) => setName(e.target.value)}
+            />
+          </Form.Group>
+          <Form.Group controlId="exampleForm.ControlTextarea1">
+            <Form.Label className="profile-ad">Address*</Form.Label>
+            <Form.Control
+              className="custom-form-port"
+              as="textarea"
+              rows={4}
+              placeholder={address}
+              value={address}
+              onChange={(e) => setAddress(e.target.value)}
             />
           </Form.Group>
           <Form.Group>
@@ -237,6 +238,9 @@ function Profile() {
             // onChange={(e) => setEmail(e.target.value)}
             />
           </Form.Group>
+
+          {/* <div className="profile-ac">Account Details</div> */}
+
           <div className="profile-button-container">
             <Button
               className="profile-button"

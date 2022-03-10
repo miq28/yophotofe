@@ -8,11 +8,6 @@ import HeaderHome from '../components/HeaderHome';
 import { useDispatch } from 'react-redux';
 import { HiOutlineMail } from 'react-icons/hi';
 import Pagination from '@material-ui/lab/Pagination';
-import Lightbox from 'react-image-lightbox';
-import 'react-image-lightbox/style.css'; // This only needs to be imported once in your app
-import { Description } from '@mui/icons-material';
-
-
 
 
 
@@ -30,9 +25,6 @@ function GalleryPhoto() {
   const dispatch = useDispatch();
   // const [numPhotoPerPage, setNumPhotoPerPage] = useState(0);
   const [gambar, setGambar] = useState('');
-  const [titleGambar, setTitleGambar] = useState('');
-  const [captionGambar, setCaptionGambar] = useState('');
-  const [isOpen, setOpen] = useState({});
 
   // let pageNumber
   const numPhotoPerPage = 15
@@ -43,7 +35,6 @@ function GalleryPhoto() {
 
 
   async function fetchDataGalleryPhoto() {
-    setOpen(false)
     setIsLoading(true);
     console.log(id)
 
@@ -110,22 +101,10 @@ function GalleryPhoto() {
   };
 
 
-  // const onImageClick = (id, theme) => {
-  //   theme = 'darkmode'
-  //   let themeLower = theme.toLowerCase();
-  //   window.location = `/temp/${themeLower}/${id}`;
-  // };
-
-  const onImageClick = (bool, url, title, desc) => {
-    // theme = 'darkmode'
-    const regex = /800\/600/i;
-    if (url.match(regex)) {
-      url = url.replace(regex, '1600/900')
-    }
-    setGambar(url)
-    setTitleGambar(title)
-    setCaptionGambar(desc)
-    setOpen(bool);
+  const onImageClick = (id, theme) => {
+    theme = 'darkmode'
+    let themeLower = theme.toLowerCase();
+    window.location = `/temp/${themeLower}/${id}`;
   };
 
   if (isLoading) {
@@ -137,49 +116,8 @@ function GalleryPhoto() {
     );
   }
 
-  // let isOpen = false
-
-  // const { photoIndex, isOpen } = this.state;
-
-
   return (
     <>
-
-
-      <div>
-        {/* <button type="button" onClick={() => this.setState({ isOpen: true })}>
-          Open Lightbox
-        </button> */}
-
-        {isOpen && (
-          <Lightbox
-            mainSrc={gambar}
-            imageTitle={titleGambar}
-            imageCaption={captionGambar}
-            // nextSrc={images[(0 + 1) % images.length]}
-            // prevSrc={images[(0 + images.length - 1) % images.length]}
-            onCloseRequest={() => setOpen(false)}
-
-          // onMovePrevRequest={() =>
-          //   setOpen({
-          //     photoIndex: (photoIndex + images.length - 1) % images.length,
-          //   })
-          // }
-          // onMoveNextRequest={() =>
-          //   setOpen({
-          //     photoIndex: (0 + 1) % images.length,
-          //   })
-          // }
-          />
-        )}
-      </div>
-
-
-
-
-
-
-
       <div className="background-wrapper">
         <HeaderHome headerHeight={350} />
 
@@ -214,9 +152,7 @@ function GalleryPhoto() {
                   className="cards-img"
                   src={val.path}
                   alt="noImageFound"
-                  // onClick={() => onImageClick(val.id, val.theme)}
-                  onClick={() => onImageClick(true, val.path, val.title, val.description)}
-                // onClick={() => setOpen(true)}
+                  onClick={() => onImageClick(val.id, val.theme)}
                 />
                 <div className="cards-text">
                   <div className="cards-text1">{val.title}</div>
