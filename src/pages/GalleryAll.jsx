@@ -10,6 +10,7 @@ import Pagination from '@mui/lab/Pagination';
 import HeaderLogin from './../components/HeaderLogin';
 
 function GalleryAll() {
+  const auth = useSelector((state) => state.auth); //update header login
   const [collections, setCollections] = useState([]);
   const [isLoading, setIsLoading] = useState(false);
   const [page, setPage] = useState(1);
@@ -17,7 +18,7 @@ function GalleryAll() {
   const dispatch = useDispatch();
   const history = useHistory();
   const [albumsAll, storeAlbumsAll] = useState([]);
-  const auth = useSelector((state) => state.auth);
+
 
   useEffect(() => {
     fetchDataGalleryAll();
@@ -107,7 +108,9 @@ function GalleryAll() {
   if (isLoading) {
     return (
       <>
-        <HeaderHome />
+        {
+          auth.isLogin ? <HeaderLogin /> : (<HeaderHome headerHeight={165} />)
+        }
         <div className="loader"></div>
       </>
     );

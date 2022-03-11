@@ -20,6 +20,13 @@
         height: 100%;
         text-align: center;
 
+        .port-main-header-logo {
+          // padding-top: 30px;
+          // color: $color-ash;
+          height: 50px;
+          width: 40px;
+        }
+
         .port-main-header-link {
           padding-top: 30px;
           color: $color-ash;
@@ -29,6 +36,7 @@
             text-decoration: underline;
           }
         }
+        
       }
       
       .port-text {

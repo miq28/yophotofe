@@ -26,14 +26,14 @@ function Dashboard() {
   const [dataPackages, setDataPackages] = useState([]);
   const [dataProjects, setDataProjects] = useState([]);
   const [dataCollections, setDataCollections] = useState([]);
-  const[profileDataCollections, setProfileDataCollections] = useState([])
+  const [profileDataCollections, setProfileDataCollections] = useState([])
   const history = useHistory();
   const dispatch = useDispatch();
 
   //dummy data variable baru
 
   useEffect(() => {
-    
+
 
     if (auth.isLogin) {
 
@@ -55,31 +55,26 @@ function Dashboard() {
   }, []);  // eslint-disable-line react-hooks/exhaustive-deps
   console.log(auth)
   const fetchDataCollections = async () => {
-    try{
+    try {
       const x = auth.id
       // console.log("test")
       // console.log(x)
 
 
 
-      
+
       console.log(x)
       setProfileDataCollections(x)
 
-  } catch (error) {
+    } catch (error) {
       if (error.response) {
-          dispatch(toastError(`${error.response.data.message}`))
-          console.log(error.response.data.message)
+        dispatch(toastError(`${error.response.data.message}`))
+        console.log(error.response.data.message)
       } else {
-          console.log(`Error`, error.message)
+        console.log(`Error`, error.message)
       }
-  }
+    }
   };
-  
-
-
-
-
 
 
   if (isLoading) {
@@ -114,7 +109,7 @@ function Dashboard() {
             <div className="recent-collections">
               <div className="recent-collections-title">Recent Collections</div>
               <div className="rcollections-wrapper">
-                  {/* {profileDataCollections.map((u) => (
+                {/* {profileDataCollections.map((u) => (
                   <ListAlbum key={u.id} entry={u} />
                  ))} */}
               </div>
