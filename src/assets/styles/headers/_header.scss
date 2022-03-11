@@ -1,5 +1,5 @@
 .port-header {
-  z-index: 1;
+  z-index: 2;
 
   @media (max-width: 992px) {
     background: $color-wheat;
@@ -7,10 +7,6 @@
     top: 0;
     width: 100%;
     border-width: 0;
-    border-top-width: 4px;
-    border-style: solid;
-    border-image: linear-gradient(260.06deg, #0e203d 10.76%, #eab197 94.23%) 3;
-
     .port-header-logo {
       img {
         width: 150px;
@@ -76,10 +72,6 @@
     padding-top: 6px;
     padding-bottom: 6px;
     border-width: 0;
-    border-top-width: 4px;
-    border-style: solid;
-    border-image: linear-gradient(260.06deg, #0e203d 10.76%, #eab197 94.23%) 3;
-
     .port-header-logo {
       padding-left: 45px;
 

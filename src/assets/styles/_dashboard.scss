@@ -19,6 +19,10 @@
       img {
         width: 100px;
         height: 100px;
+        display: block;
+        border-radius: 50%;
+        margin-left: auto;
+        margin-right: auto;
         object-fit: cover;
       }
     }

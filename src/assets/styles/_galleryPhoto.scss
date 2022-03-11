@@ -1,31 +1,42 @@
 .galleryphoto-wrapper {
   max-width: 1300px;
   margin: 0 auto;
+
   .gallery-head {
     display: flex;
     flex-direction: column;
     align-items: center;
+
     .gallery-link {
       text-align: center;
+
       .gallery-logo {
         width: 100px;
         height: 100px;
+        display: block;
+        border-radius: 50%;
+        margin-left: auto;
+        margin-right: auto;
         object-fit: cover;
       }
+
       .logo-name {
         font-size: 24px;
         font-weight: bold;
         color: #000000;
         margin-top: 20px;
+
         &:hover {
           color: #c2a47e;
           text-decoration: underline;
         }
       }
+
       &:hover {
         text-decoration: none;
       }
     }
+
     .gallery-search {
       display: flex;
       margin-top: 100px;

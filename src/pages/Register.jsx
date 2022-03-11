@@ -10,7 +10,7 @@ import Logo from '../assets/img/logo.png';
 function Login() {
   const [isLoading, setIsLoading] = useState(false);
   const [name, setName] = useState('');
-  // const [bsName, setBsName] = useState('');
+  const [bsName, setBsName] = useState('');
   const [email, setEmail] = useState('');
   const [password, setPassword] = useState('');
   const history = useHistory();
@@ -34,25 +34,16 @@ function Login() {
     axios
       .post(`${URL_API}/users/signup`, data)
       .then((res) => {
-        console.log(res)
-        const respond = res.data.result
         dispatch(
           toastSuccess('Success! You are now logged in with your new account!')
         );
-
-        if (respond && respond.token) {
-          localStorage.setItem('token', respond.token);
-        } else {
-          throw new Error('No token received from backend')
-        }
-
+        localStorage.setItem('token', res.data.result.token);
         setTimeout(() => {
-          window.location = '/HomePage';
+          window.location = '/homepage';
         }, 3000);
       })
       .catch((err) => {
-        console.log(err)
-        console.log(err.response.data)
+        console.log(err.response.result)
         dispatch(toastError(`${err.response.data.message}`));
         setIsLoading(false);
       });

@@ -40,8 +40,7 @@ function HeaderLogin() {
             <div className={`port-header-products pr-3 ${page === 'projects' ? 'header-link-active' : null}`}>
               <Link to="/projects">Contest</Link>
             </div>
-            <div className={`port-header-package pr-5 ${page === 'packages' ? 'header-link-active' : null}`}
-            >
+            <div className={`port-header-package pr-5 ${page === 'packages' ? 'header-link-active' : null}`}>
               <Link to="/gallery/all">Gallery</Link>
             </div>
             <div className="port-header-user pr-5">
@@ -49,15 +48,15 @@ function HeaderLogin() {
                 <img src={LogoUser} alt="imageLogo" />
               </Link>
             </div>
-            <div className="port-header-bell-notif pr-4">
+            {/* <div className="port-header-bell-notif pr-4">
               <span onClick={onNotifClick} className="cursor-pointer">
                 Notifications
               </span>
-            </div>
-            <div className="port-header-user-profile pr-5">
+            </div> */}
+            <div className="port-header-user-profile pr-4">
               <Link to="/dashboard">Profile</Link>
             </div>
-            <div className="port-header-user pr-5, cursor-pointer" onClick={handleLogout}>
+            <div className="logout" onClick={handleLogout}>
               <img src={LogologOut} alt="imageLogo" />
             </div>
           </div>

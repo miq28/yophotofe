@@ -1,0 +1,16 @@
+.photos {
+    display: flex;
+    align-items: center;
+  }
+  
+  .photosImgContainer {
+    position: relative;
+  }
+  
+  .photosImg {
+    width: 194px;
+    height: 90px;
+    object-fit: cover;
+    padding: 4px;
+  }
+  

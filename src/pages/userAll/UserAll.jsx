@@ -9,6 +9,7 @@ import { URL_API } from "../../helper/url";
 import { toastError } from "../../redux/actions";
 import Pagination from '@material-ui/lab/Pagination';
 import UserCard from "../../components/userCard/UserCard";
+import HeaderLogin from "../../components/HeaderLogin";
 
 
 export default function UserAll() {
@@ -59,7 +60,7 @@ export default function UserAll() {
 
   return (
     <>
-            <Header/>
+            <HeaderLogin/>
             <div className="userAll">          
                 <div className="userAllContainer">
                     {collections.map((p) => (

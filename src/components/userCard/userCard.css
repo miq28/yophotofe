@@ -1,0 +1,69 @@
+.userCard{
+    width: 400px;
+    border-radius: 20px;
+    -webkit-box-shadow: 0px 0px 16px -8px rgba(0, 0, 0, 0.68);
+    box-shadow: 0px 0px 16px -8px rgba(0, 0, 0, 0.68);
+    margin: 30px;
+
+}
+
+.cardWrapper{
+    background-color: white;
+    border-radius: 20px;
+}
+
+.cardTop{
+    height: 40px;
+    background-color: #C2A47E;
+    position: relative;
+}
+
+.UserImg{
+    width: 60px;
+    height: 60px;
+    border-radius: 50%;
+    object-fit: cover;
+    margin: auto;
+    top: 40px;
+    border: 3px solid white;
+}
+
+.postCenter1{
+    margin-top: 40px;
+}
+.postText{
+    font-size: 25px;
+    font-weight: 500;
+    max-width: 500px;
+    margin-top: 10px;
+    margin-left: auto;
+    margin-right: auto;
+    text-align: center;
+}
+
+.postCenter2{
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    flex-wrap: wrap;
+    margin: 5px;
+    cursor: pointer;
+    position: relative;
+}
+
+.postBottom{
+    height: 40px;
+    position: relative;
+    display: flex;
+    align-items: center;
+    flex-wrap: wrap;
+}
+
+.textDetails{
+    font-size: 15px;
+    font-weight: 500;
+    max-width: 500px;
+    margin-left: auto;
+    margin-right: auto;
+    text-align: center;
+}

@@ -137,11 +137,13 @@ function Login() {
                   className="custom-form-port"
                   type="password"
                   value={password}
-                  placeholder="********"
+                  placeholder=""
                   onChange={(e) => setPassword(e.target.value)}
                 />
               </Form.Group>
-              <Button block size="lg" type="submit">
+              <Button block size="lg" type="submit"
+              disabled={!(email && password)}
+              >
                 Login
               </Button>
             </Form>
