@@ -9,7 +9,7 @@ import {
   toastInfo,
   toastSuccess,
 } from '../redux/actions/toastActions';
-import Logo from '../assets/img/logo.png';
+import Logo from '../assets/img/portraiture.png';
 
 // helper function to delay the execution
 function sleep(ms) {

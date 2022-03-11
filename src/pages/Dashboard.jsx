@@ -74,7 +74,7 @@ function Dashboard() {
       setDataProjects(invoice);
       setIsLoading(false);
     } catch (error) {
-      dispatch(toastError(`${error.response.data.message}`));
+      // dispatch(toastError(`${error.response.data.message}`));
       setIsLoading(false);
     }
   };
@@ -86,7 +86,7 @@ function Dashboard() {
         return res.data.result;
       })
       .catch((err) => {
-        dispatch(toastError(`${err.response.data.message}`));
+        // dispatch(toastError(`${err.response.data.message}`));
       });
   };
 
@@ -100,7 +100,7 @@ function Dashboard() {
       setDataPackages(res.data.result);
       setIsLoading(false);
     } catch (error) {
-      dispatch(toastError(`${error.response.data.message}`));
+      // dispatch(toastError(`${error.response.data.message}`));
       setIsLoading(false);
     }
   };
@@ -268,7 +268,7 @@ function Dashboard() {
         }, 3000);
       })
       .catch((err) => {
-        dispatch(toastError(`${err.response.data.message}`));
+        // dispatch(toastError(`${err.response.data.message}`));
       });
   };
 

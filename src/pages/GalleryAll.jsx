@@ -7,8 +7,11 @@ import { useHistory, useParams } from 'react-router-dom';
 import HeaderHome from '../components/HeaderHome';
 import Footer from '../components/Footer';
 import Pagination from '@mui/lab/Pagination';
+import HeaderLogin from '../components/HeaderLogin';
+import { useSelector } from 'react-redux';
 
 function GalleryAll() {
+  const auth = useSelector((state) => state.auth); //update header login
   const [collections, setCollections] = useState([]);
   const [isLoading, setIsLoading] = useState(false);
   const [page, setPage] = useState(1);
@@ -114,7 +117,11 @@ function GalleryAll() {
   return (
 
     <div className="background-wrapper">
-      <HeaderHome headerHeight={350} />
+
+      {
+        auth.isLogin ? <HeaderLogin /> : (<HeaderHome headerHeight={165} />)
+      }
+
       <div className="galleryall-wrapper">
         <div className="gallery-title">Explore Photographer Gallery</div>
         <div className="galleryall-cards-container">{galleryAllImage()}</div>
