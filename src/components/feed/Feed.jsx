@@ -31,11 +31,15 @@ export default function Feed() {
     }
   }
 
+  const handleClick = (event) => {
+    window.location = '/upload';
+  };
+
   return (
     <div className="feed">
       <div className="feedWrapper">
         <div className="feedUpload">
-          <button className="uploadHome">Upload Photo</button>
+          <button className="uploadHome" onClick={handleClick}>Upload Photo</button>
           <p className="desc">
           Photos uploaded by photographers you follow are added to your feed. 
           Remember your photos will appear in your followers’ feeds too. A great way to get your work out there

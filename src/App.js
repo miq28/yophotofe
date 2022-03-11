@@ -40,7 +40,7 @@ import NotLogin from './pages/NotLogin';
 import jwt_decode from "jwt-decode";
 import Contest from "./pages/contest/Contest"
 import UserAll from './pages/userAll/UserAll';
-// import Upload from './pages/upload/Upload'
+import Upload from './pages/upload/Upload'
 
 function App() {
   const dispatch = useDispatch();
@@ -73,7 +73,7 @@ function App() {
         })
         .catch((err) => {
           console.log(err);
-          localStorage.removeItem('token');
+          // localStorage.removeItem('token');
           setTimeout(() => {
             window.location = '/';
           }, 2000);
@@ -155,7 +155,7 @@ function App() {
           <Route exact path="/homepage" component={Homepage} />
           <Route exact path="/contest" component={Contest} />
           <Route exact path="/user/all" component={UserAll}/>
-          {/* <Route exact path="/upload" component={Upload}/> */}
+          <Route exact path="/upload" component={Upload}/>
           <Route path="*" component={NotFound} />
         </Switch>
       </>
@@ -210,7 +210,7 @@ function App() {
         <Route exact path="/homepage" component={Homepage} />
         <Route exact path="/contest" component={Contest} />
         <Route exact path="/user/all" component={UserAll}/>
-        {/* <Route exact path="/upload" component={Upload}/> */}
+        <Route exact path="/upload" component={Upload}/>
         
         <Route path="*" component={NotFound} />
       </Switch>
