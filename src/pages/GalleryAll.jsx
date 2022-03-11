@@ -108,7 +108,9 @@ function GalleryAll() {
   if (isLoading) {
     return (
       <>
-        <HeaderHome />
+         {
+        auth.isLogin ? <HeaderLogin /> : (<HeaderHome headerHeight={165} />)
+      }
         <div className="loader"></div>
       </>
     );
