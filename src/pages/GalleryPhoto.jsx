@@ -5,12 +5,13 @@ import { Link, useParams } from 'react-router-dom';
 import { URL_API } from '../helper/url';
 import { toastError } from '../redux/actions/toastActions';
 import HeaderHome from '../components/HeaderHome';
-import { useDispatch } from 'react-redux';
+import { useDispatch, useSelector } from 'react-redux';
 import { HiOutlineMail } from 'react-icons/hi';
 import Pagination from '@material-ui/lab/Pagination';
 import Lightbox from 'react-image-lightbox';
 import 'react-image-lightbox/style.css'; // This only needs to be imported once in your app
 import { Description } from '@mui/icons-material';
+import HeaderLogin from './../components/HeaderLogin';
 
 
 
@@ -33,6 +34,7 @@ function GalleryPhoto() {
   const [titleGambar, setTitleGambar] = useState('');
   const [captionGambar, setCaptionGambar] = useState('');
   const [isOpen, setOpen] = useState({});
+  const auth = useSelector((state) => state.auth);
 
   // let pageNumber
   const numPhotoPerPage = 15
@@ -181,7 +183,9 @@ function GalleryPhoto() {
 
 
       <div className="background-wrapper">
-        <HeaderHome headerHeight={350} />
+      {
+        auth.isLogin ? <HeaderLogin /> : (<HeaderHome headerHeight={165} />)
+      }
 
         <div className="galleryphoto-wrapper">
           <div className="gallery-head">
@@ -193,19 +197,6 @@ function GalleryPhoto() {
               />
               <div className="logo-name">{studioName}</div>
             </Link>
-            <div className="gallery-search">
-              <div className="search-input">
-                <input
-                  type="search"
-                  placeholder="Search gallery"
-                  value={search}
-                  onChange={(e) => setSearch(e.target.value)}
-                />
-              </div>
-              <div className="search-icon">
-                <FiSearch size={16} />
-              </div>
-            </div>
           </div>
           <div className="gallery-wrapper">
             {image.map(val => (

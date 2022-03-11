@@ -9,7 +9,7 @@ import {
   toastInfo,
   toastSuccess,
 } from '../redux/actions/toastActions';
-import Logo from '../assets/img/logo.png';
+import Logo from '../assets/img/portraiture.png';
 
 // helper function to delay the execution
 function sleep(ms) {
@@ -110,7 +110,7 @@ function Login() {
       <div className="port-background">
         <div className="port-main">
           <div className="port-main-header">
-            <div className="port-main-header-logo">
+            <div className="port-main-header-logo w-24 h-8">
               <img src={Logo} alt="portlogo" />
             </div>
             <div className="port-main-header-link">
@@ -142,7 +142,7 @@ function Login() {
                 />
               </Form.Group>
               <Button block size="lg" type="submit"
-              disabled={!(email && password)}
+                disabled={!(email && password)}
               >
                 Login
               </Button>

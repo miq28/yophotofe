@@ -7,10 +7,14 @@ import axios from "axios"
 import { URL_API } from "../../helper/url"
 import { toastError } from "../../redux/actions/toastActions"
 import ListPhoto from "../listPhoto/ListPhoto"
+import { useHistory ,Link } from 'react-router-dom';
 
 export default function UserCard ({post}) {
     const[collections, setCollections] = useState([])
     const[userPhotos, storeUserPhotos] = useState([])
+    const[profileUserId, storeProfilUserId] = useState([])
+    const[userLink, storeUserLink] = useState([])
+    const history = useHistory()
     const dispatch = useDispatch
 
     useEffect(() => {
@@ -22,12 +26,21 @@ export default function UserCard ({post}) {
         try{
             const profilePhoto = post.profile.profilePhoto
             const storePhotos = post.photos
+            const profileId = post.profile.userId
 
             let slicedPhotos = []
             slicedPhotos = storePhotos.slice(0,4)
             
             setCollections(profilePhoto)
             storeUserPhotos(slicedPhotos)
+            storeProfilUserId(profileId)
+
+            // const onStudioClick = (profileUserId) => {
+            //     history.push(`/gallery/photographer/${profileUserId}`);
+            //   };
+            // console.log(profileUserId)
+
+            // storeUserLink(onStudioClick)
 
         } catch (error) {
             if (error.response) {
@@ -38,7 +51,8 @@ export default function UserCard ({post}) {
             }
         }
     }
-
+    
+    
   return (
     <div className="userCard" >
         
@@ -58,8 +72,8 @@ export default function UserCard ({post}) {
                 ))}
             </div>
             <div className="postBottom">
-                <h4 className="textDetails">Show more details</h4>
-            </div>
+                <h4 className="textDetails"><Link to= {`/gallery/photographer/${profileUserId}`}>Show More Details</Link></h4>
+            </div> 
         </div>
     </div>
   )

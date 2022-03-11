@@ -1,0 +1,16 @@
+.albums {
+    display: flex;
+    align-items: center;
+  }
+  
+  .albumsImgContainer {
+    position: relative;
+  }
+  
+  .albumsImg {
+    width: 194px;
+    height: 90px;
+    object-fit: cover;
+    padding: 4px;
+  }
+  

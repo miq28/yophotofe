@@ -5,7 +5,7 @@ import { Link, useHistory } from 'react-router-dom';
 import { useDispatch, useSelector } from 'react-redux';
 import { URL_API } from '../helper/url';
 import { toastError, toastSuccess } from '../redux/actions';
-import Logo from '../assets/img/logo.png';
+import Logo from '../assets/img/portraiture.png';
 
 function Login() {
   const [isLoading, setIsLoading] = useState(false);
@@ -62,7 +62,7 @@ function Login() {
       <div className="port-background">
         <div className="port-main">
           <div className="port-main-header">
-            <div className="port-main-header-logo">
+            <div className="port-main-header-logo w-24 h-8">
               <img src={Logo} alt="portlogo" />
             </div>
             <div className="port-main-header-link">

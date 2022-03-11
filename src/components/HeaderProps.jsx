@@ -8,7 +8,7 @@ function HeaderProps(props) {
       <div className="hprops-text">
         <div className="hprops-text-mid">{props.title}</div>
         <div className="hprops-text-close">
-          <Link to={props.link}>
+          <Link to="/homepage">
             <AiOutlineClose />
           </Link>
         </div>

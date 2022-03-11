@@ -37,8 +37,8 @@ function HeaderLogin() {
         <Navbar.Toggle aria-controls="basic-navbar-nav" />
         <Navbar.Collapse id="basic-navbar-nav">
           <div className="port-header-nav">
-            <div className={`port-header-products pr-3 ${page === 'projects' ? 'header-link-active' : null}`}>
-              <Link to="/projects">Contest</Link>
+            <div className={`port-header-products pr-3 ${page === 'contest' ? 'header-link-active' : null}`}>
+              <Link to="/contest">Contest</Link>
             </div>
             <div className={`port-header-package pr-5 ${page === 'packages' ? 'header-link-active' : null}`}>
               <Link to="/gallery/all">Gallery</Link>
