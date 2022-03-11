@@ -150,9 +150,11 @@ function Home() {
           </div>
         </div>
         <div className='flex items-center justify-center py-4'>
-        {/* background: linear-gradient(260.06deg, #0e203d 10.76%, #eab197 94.23%); */}
+          {/* background: linear-gradient(260.06deg, #0e203d 10.76%, #eab197 94.23%); */}
           <button className='bg-gradient-to-r from-yellow-500 to-black text-white text-4xl px-3 py-2 '>
-            See more open contest
+            <Link to="/contest">
+              See more open contest
+            </Link>
           </button>
         </div>
         <div className='flex items-center justify-center py-4 mb-8'>

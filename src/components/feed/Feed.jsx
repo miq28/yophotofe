@@ -16,8 +16,8 @@ export default function Feed() {
   }, []);
 
   const fetchDataAllPhotos = async () => {
-    try{
-      const res = await axios.get(`${URL_API}/photos?limit=5`)
+    try {
+      const res = await axios.get(`${URL_API}/photos?limit=100`)
       const photosAll = res.data.result
 
       setCollections(photosAll)
@@ -41,8 +41,8 @@ export default function Feed() {
         <div className="feedUpload">
           <button className="uploadHome" onClick={handleClick}>Upload Photo</button>
           <p className="desc">
-          Photos uploaded by photographers you follow are added to your feed. 
-          Remember your photos will appear in your followers’ feeds too. A great way to get your work out there
+            Photos uploaded by photographers you follow are added to your feed.
+            Remember your photos will appear in your followers’ feeds too. A great way to get your work out there
           </p>
         </div>
         {collections.map((p) => (

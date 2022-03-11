@@ -183,9 +183,9 @@ function GalleryPhoto() {
 
 
       <div className="background-wrapper">
-      {
-        auth.isLogin ? <HeaderLogin /> : (<HeaderHome headerHeight={165} />)
-      }
+        {
+          auth.isLogin ? <HeaderLogin /> : (<HeaderHome headerHeight={165} />)
+        }
 
         <div className="galleryphoto-wrapper">
           <div className="gallery-head">
