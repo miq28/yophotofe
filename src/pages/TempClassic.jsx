@@ -92,7 +92,7 @@ function TempClassic() {
 
   const collectionAllImage = () => {
     return images.map((val, index) => {
-      return <img src={val} alt="" />;
+      return <img src={val} key={index} alt="" />;
     });
   };
 

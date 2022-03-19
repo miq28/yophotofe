@@ -62,7 +62,7 @@ function GalleryPhoto() {
 
 
     async function fetchUserPhotosByUserId(x) {
-      const res = await axios.get(`${URL_API}/photos/user/${x}?skip=0&take=100`);
+      const res = await axios.get(`${URL_API}/photos/user/${x}?skip=0&take=${15}`);
       console.log('photos', res.data.result)
       return res.data.result
     }
@@ -83,8 +83,8 @@ function GalleryPhoto() {
 
     // THIS SET THE TARGET NUMBER OF PHOTOS PER PAGE
     // setNumPhotoPerPage(9)
-
-    const numPage = Math.ceil(photos.length / numPhotoPerPage)
+    console.log('count', photos)
+    const numPage = Math.ceil(photos.count / numPhotoPerPage)
     setPageNumber(numPage);
 
     setImageBackup(photos);

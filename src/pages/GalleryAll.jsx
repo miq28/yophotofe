@@ -79,9 +79,10 @@ function GalleryAll() {
       return (
         <div className="galleryall-cards" key={index}>
           <img
-            src={val.path}
+            // src={val.path}
+            src={(val.photos.find(el => el.id === val.coverPhotoId)).path}
             alt="NoImageFound"
-            onClick={() => onImageClick(val.albumId, val.theme)}
+            onClick={() => onImageClick(val.id, val.theme)}
           />
           <div
             className="cards-text"
