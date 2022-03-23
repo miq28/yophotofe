@@ -169,7 +169,7 @@ function App() {
       />
       <Routes>
         <Route exact path="/" component={<Home />} />
-        {/* <Route path="/" element={<Miq />} /> */}
+        <Route path="/miq" element={<Miq />} />
         <Route path="/register" element={<Register />} />
         <Route path="/login" element={<Login />} />
         <Route path="/privacy/:id" element={<Privacy />} />

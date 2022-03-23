@@ -55,7 +55,7 @@ function App() {
 
     return (
         <div className="wrapper">
-            <Gallery photos={photos} direction={"column"} columns={1} />
+            <Gallery photos={photos} direction={"column"} columns={4} />
         </div>
     );
 }
