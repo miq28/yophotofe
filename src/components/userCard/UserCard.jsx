@@ -1,20 +1,16 @@
-import "./userCard.css"
-import { MoreVert } from "@mui/icons-material"
-import { Users, Posts } from "../../dummyData"
 import { useEffect, useState } from "react"
 import { useDispatch } from "react-redux"
-import axios from "axios"
-import { URL_API } from "../../helper/url"
+import { Link, useNavigate } from 'react-router-dom'
 import { toastError } from "../../redux/actions/toastActions"
 import ListPhoto from "../listPhoto/ListPhoto"
-import { useHistory, Link } from 'react-router-dom';
+import "./userCard.css"
 
 export default function UserCard({ post }) {
     const [collections, setCollections] = useState([])
     const [userPhotos, storeUserPhotos] = useState([])
     const [profileUserId, storeProfilUserId] = useState([])
     const [userLink, storeUserLink] = useState([])
-    const history = useHistory()
+    const navigate = useNavigate()
     const dispatch = useDispatch
 
     useEffect(() => {
@@ -36,7 +32,7 @@ export default function UserCard({ post }) {
             storeProfilUserId(profileId)
 
             // const onStudioClick = (profileUserId) => {
-            //     history.push(`/gallery/photographer/${profileUserId}`);
+            //     navigate.push(`/gallery/photographer/${profileUserId}`);
             //   };
             // console.log(profileUserId)
 

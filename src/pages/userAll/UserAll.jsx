@@ -1,15 +1,12 @@
-import "./userAll.css"
-import Feed from "../../components/feed/Feed";
-import Rightbar from "../../components/rightbar/Rightbar";
-import Header from "../../components/Header";
-import { useDispatch } from "react-redux";
-import { useEffect, useState } from "react";
+import { Pagination } from '@mui/material';
 import axios from "axios";
+import { useEffect, useState } from "react";
+import { useDispatch } from "react-redux";
+import HeaderLogin from "../../components/HeaderLogin";
+import UserCard from "../../components/userCard/UserCard";
 import { URL_API } from "../../helper/url";
 import { toastError } from "../../redux/actions";
-import Pagination from '@material-ui/lab/Pagination';
-import UserCard from "../../components/userCard/UserCard";
-import HeaderLogin from "../../components/HeaderLogin";
+import "./userAll.css";
 
 
 export default function UserAll() {

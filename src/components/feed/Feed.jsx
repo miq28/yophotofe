@@ -26,7 +26,7 @@ export default function Feed() {
   const fetchProfiles = async () => {
     setIsLoading(false);
     try {
-      const res = await axios.get(`${URL_API}/photos?limit=100`)
+      const res = await axios.get(`${URL_API}/photos?limit=10`)
       const photosAll = res.data.result
       console.log('photosAll', photosAll)
 

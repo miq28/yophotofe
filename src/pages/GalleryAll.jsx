@@ -3,11 +3,12 @@ import axios from 'axios';
 import { URL_API } from '../helper/url';
 import { toastError } from '../redux/actions/toastActions';
 import { useDispatch, useSelector } from 'react-redux';
-import { useHistory, useParams } from 'react-router-dom';
+import { useNavigate, useParams } from 'react-router-dom';
 import HeaderHome from '../components/HeaderHome';
 import Footer from '../components/Footer';
-import Pagination from '@mui/lab/Pagination';
+import Pagination from '@mui/material/Pagination';
 import HeaderLogin from './../components/HeaderLogin';
+import log from '../utils/logger'
 
 function GalleryAll() {
   const auth = useSelector((state) => state.auth); //update header login
@@ -16,7 +17,7 @@ function GalleryAll() {
   const [page, setPage] = useState(1);
   const [pageNumber, setPageNumber] = useState(0);
   const dispatch = useDispatch();
-  const history = useHistory();
+  const navigate = useNavigate();
   const [albumsAll, storeAlbumsAll] = useState([]);
 
 
@@ -30,11 +31,11 @@ function GalleryAll() {
       let res = await axios.get(`${URL_API}/albums/galleryall?skip=0&take=1000`);
       // let res = await axios.get(`${URL_API}/photos?limit=100`);
       const albumsAll = res.data.result
-      console.log(albumsAll)
+      log.info(albumsAll)
       storeAlbumsAll(albumsAll)
       let numTotal = albumsAll.length
       setPageNumber(Math.ceil(numTotal / 15));
-      console.log('pageNumber', pageNumber)
+      log.info('pageNumber', pageNumber)
       let slicedAlbum = []
       slicedAlbum = albumsAll.slice(undefined, 15)
 
@@ -45,9 +46,9 @@ function GalleryAll() {
     } catch (error) {
       if (error.response) {
         dispatch(toastError(`${error.response.data.message}`));
-        console.log(error.response.data.message)
+        log.info(error.response.data.message)
       } else {
-        console.log('Error', error.message);
+        log.info('Error', error.message);
       }
 
       setIsLoading(false);
@@ -62,7 +63,7 @@ function GalleryAll() {
     const numTotal = albumsAll.length
     const start = 15 * (value - 1)
     const end = 15 * value
-    console.log('value=', value, 'start=', start, 'end=', end)
+    log.info('value=', value, 'start=', start, 'end=', end)
     let slicedAlbum = []
     if (numTotal > 15) {
       slicedAlbum = albumsAll.slice(start, end)
@@ -103,7 +104,7 @@ function GalleryAll() {
   };
 
   const onStudioClick = (idStudio) => {
-    history.push(`/gallery/photographer/${idStudio}`);
+    navigate.push(`/gallery/photographer/${idStudio}`);
   };
 
   if (isLoading) {

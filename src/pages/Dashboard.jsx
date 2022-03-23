@@ -1,33 +1,36 @@
 import React, { useEffect, useState } from 'react';
-import {
-  BsImage,
-  BsBoxArrowInDown,
-  BsEyeFill,
-  BsCheck,
-  BsX,
-} from 'react-icons/bs';
+// import {
+//   BsImage,
+//   BsBoxArrowInDown,
+//   BsEyeFill,
+//   BsCheck,
+//   BsX,
+// } from 'react-icons/bs';
 import { Link, useHistory } from 'react-router-dom';
-import { URL_API } from '../helper/url';
+// import { URL_API } from '../helper/url';
 import { useSelector } from 'react-redux';
 import { useDispatch } from 'react-redux';
-import { deletePackage, deleteProject } from '../redux/actions';
+// import { deletePackage, deleteProject } from '../redux/actions';
 import { toastError, toastSuccess, toastWarning } from '../redux/actions/toastActions';
-import { dateFormatter } from '../helper/dateformatter';
-import Header from '../components/Header';
-import axios from 'axios';
-import SimplePopover from '../components/Popover/SimplePopover';
+// import { dateFormatter } from '../helper/dateformatter';
+// import Header from '../components/Header';
+// import axios from 'axios';
+// import SimplePopover from '../components/Popover/SimplePopover';
 import HeaderLogin from '../components/HeaderLogin';
 import jwt_decode from "jwt-decode";
-import ListAlbum from '../components/listAlbum/ListAlbum';
+// import ListAlbum from '../components/listAlbum/ListAlbum';
+import log from '../utils/logger'
+
 
 function Dashboard() {
   const auth = useSelector((state) => state.auth);
   const [isLoading, setIsLoading] = useState(false);
-  const [dataPackages, setDataPackages] = useState([]);
-  const [dataProjects, setDataProjects] = useState([]);
-  const [dataCollections, setDataCollections] = useState([]);
-  const [profileDataCollections, setProfileDataCollections] = useState([])
-  const history = useHistory();
+  const [photo, setPhoto] = useState();
+  // const [dataPackages, setDataPackages] = useState([]);
+  // const [dataProjects, setDataProjects] = useState([]);
+  // const [dataCollections, setDataCollections] = useState([]);
+  // const [profileDataCollections, setProfileDataCollections] = useState([])
+  // const history = useHistory();
   const dispatch = useDispatch();
 
   //dummy data variable baru
@@ -39,39 +42,42 @@ function Dashboard() {
 
       const jwtToken = localStorage.getItem('token')
       const decoded = jwt_decode(jwtToken)
-      console.log('profile decoded', decoded)
+      log.info('profile decoded', decoded)
 
       // setBusinessName(auth.businessName);
       // setAddress(auth.address);
       // setEmail(decoded.email);
       // setName(auth.name);
-      // setPhoto(auth.photo);
+      setPhoto(auth.photo);
       setIsLoading(false);
       fetchDataCollections();
     } else {
       dispatch(toastWarning(`Kamu belum login 😍`));
-      window.location = '/';
+      setTimeout(() => {
+        window.location = '/';
+      }, 2000);
+      // window.location = '/';
     }
   }, []);  // eslint-disable-line react-hooks/exhaustive-deps
-  console.log(auth)
+  log.info(auth)
   const fetchDataCollections = async () => {
     try {
       const x = auth.id
-      // console.log("test")
-      // console.log(x)
+      // log.info("test")
+      // log.info(x)
 
 
 
 
-      console.log(x)
-      setProfileDataCollections(x)
+      log.info(x)
+      // setProfileDataCollections(x)
 
     } catch (error) {
       if (error.response) {
         dispatch(toastError(`${error.response.data.message}`))
-        console.log(error.response.data.message)
+        log.info(error.response.data.message)
       } else {
-        console.log(`Error`, error.message)
+        log.info(`Error`, error.message)
       }
     }
   };
@@ -93,7 +99,7 @@ function Dashboard() {
         <div className="dashboard-background">
           <div className="dashboard-background-container">
             <div className="dashboard-logo">
-              <img src={`${auth.photo}`} alt="logo" />
+              <img src={`${photo}`} alt="logo" />
             </div>
             <div className="dashboard-name">{auth.businessName}</div>
             <div className="dashboard-button">

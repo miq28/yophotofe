@@ -1,12 +1,11 @@
-import React, { useEffect, useState } from 'react';
 import axios from 'axios';
-import { Form, Button } from 'react-bootstrap';
-import { URL_API } from '../../helper/url';
-import { useDispatch } from 'react-redux';
-import { useSelector } from 'react-redux';
-import { toastError, toastSuccess, toastWarning } from '../../redux/actions/toastActions';
-import HeaderProps from '../../components/HeaderProps';
 import jwt_decode from "jwt-decode";
+import React, { useEffect, useState } from 'react';
+import { Button, Form } from 'react-bootstrap';
+import { useDispatch, useSelector } from 'react-redux';
+import HeaderProps from '../../components/HeaderProps';
+import { URL_API } from '../../helper/url';
+import { toastError, toastSuccess, toastWarning } from '../../redux/actions/toastActions';
 
 function Upload() {
   const auth = useSelector((state) => state.auth);
@@ -160,7 +159,7 @@ function Upload() {
               <input id="previewImage" type="file" onChange={onPhotoChange} />
             </div>
             <div className="photo-preview">
-              <img src={picture} alt="" />
+              <img style={{ color: "red", maxheight: "500px", height: "70%", width: "auto" }} src={picture} alt="" />
             </div>
           </div>
           <Form.Group>

@@ -5,7 +5,7 @@ import { useDispatch } from 'react-redux';
 import { toastError, toastSuccess } from '../redux/actions/toastActions';
 import { FaRegShareSquare } from 'react-icons/fa';
 import { BsBoxArrowInDown, BsArrowUp } from 'react-icons/bs';
-import { useHistory, useParams } from 'react-router';
+import { useNavigate, useParams } from 'react-router';
 import { dateFormatter } from '../helper/dateformatter';
 
 function TempDarkmode() {
@@ -19,7 +19,7 @@ function TempDarkmode() {
   const [user, setUser] = useState({});
   const [collection, setCollection] = useState({});
   const [date, setDate] = useState('');
-  const history = useHistory();
+  const navigate = useNavigate();
 
   useEffect(() => {
     fetchDataImage();
@@ -71,9 +71,9 @@ function TempDarkmode() {
   const onClickDownload = () => {
     if (collection.downloadOption) {
       if (collection.password) {
-        history.push(`/privacy/${id}`);
+        navigate.push(`/privacy/${id}`);
       } else {
-        history.push(`/download/${id}`);
+        navigate.push(`/download/${id}`);
       }
     } else {
       dispatch(

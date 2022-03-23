@@ -1,7 +1,7 @@
 import React, { useState } from 'react';
 import axios from 'axios';
 import { Button, Form } from 'react-bootstrap';
-import { Link, useHistory } from 'react-router-dom';
+import { Link, useNavigate } from 'react-router-dom';
 import { URL_API } from '../helper/url';
 import { useDispatch, useSelector } from 'react-redux';
 import {
@@ -10,10 +10,13 @@ import {
   toastSuccess,
 } from '../redux/actions/toastActions';
 import Logo from '../assets/img/portraiture.png';
+import log from '../utils/logger'
 
 // helper function to delay the execution
 function sleep(ms) {
   return new Promise(resolve => setTimeout(resolve, ms));
+
+  // example: await sleep(2000);
 }
 
 function Login() {
@@ -22,7 +25,7 @@ function Login() {
   const [password, setPassword] = useState('');
   const auth = useSelector((state) => state.auth);
   const dispatch = useDispatch();
-  const history = useHistory()
+  const navigate = useNavigate()
 
 
   async function handleSubmit(event) {
@@ -33,7 +36,7 @@ function Login() {
       password: password,
     };
     dispatch(toastInfo('Contacting backend server...'));
-    await sleep(4000);
+    // await sleep(4000);
     try {
       const res = await axios.post(`${URL_API}/users/login`, data)
 
@@ -45,7 +48,7 @@ function Login() {
         // jwt cookies from backend should have been received at this stage!!
 
         dispatch(toastSuccess('Masuk brooo!'));
-        await sleep(2000);
+        // await sleep(2000);
 
         localStorage.setItem('token', resData.token);
 
@@ -77,17 +80,17 @@ function Login() {
           if (err.response.data.message) {
             dispatch(toastError(err.response.data.message));
           }
-          // console.log(err.response.data);
-          // console.log(err.response.status);
-          // console.log(err.response.headers);
+          // log.info(err.response.data);
+          // log.info(err.response.status);
+          // log.info(err.response.headers);
         } else if (err.request) {
           // The request was made but no response was received
           // `error.request` is an instance of XMLHttpRequest in the browser and an instance of
           // http.ClientRequest in node.js
-          console.log(err.request);
+          log.info(err.request);
         } else {
           // Something happened in setting up the request that triggered an Error
-          console.log('Error', err.message);
+          log.info('Error', err.message);
         }
       }
     }

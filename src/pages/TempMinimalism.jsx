@@ -5,7 +5,7 @@ import { FaRegShareSquare } from 'react-icons/fa';
 import { URL_API } from '../helper/url';
 import { useDispatch } from 'react-redux';
 import { toastError, toastSuccess } from '../redux/actions/toastActions';
-import { useHistory, useParams } from 'react-router';
+import { useNavigate, useParams } from 'react-router';
 import { dateFormatter } from '../helper/dateformatter';
 
 function TempMinimalism() {
@@ -18,7 +18,7 @@ function TempMinimalism() {
   const myRefOpen = useRef(null);
   const myRefBack = useRef(null);
   const dispatch = useDispatch();
-  const history = useHistory();
+  const navigate = useNavigate();
 
   useEffect(() => {
     fetchDataImage();
@@ -61,9 +61,9 @@ function TempMinimalism() {
   const onClickDownload = () => {
     if (collection.downloadOption) {
       if (collection.password) {
-        history.push(`/privacy/${id}`);
+        navigate.push(`/privacy/${id}`);
       } else {
-        history.push(`/download/${id}`);
+        navigate.push(`/download/${id}`);
       }
     } else {
       dispatch(

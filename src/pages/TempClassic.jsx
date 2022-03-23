@@ -5,7 +5,7 @@ import { useDispatch } from 'react-redux';
 import { toastError, toastSuccess } from '../redux/actions/toastActions';
 import { FaRegShareSquare } from 'react-icons/fa';
 import { BsBoxArrowInDown, BsArrowUp } from 'react-icons/bs';
-import { useHistory, useParams } from 'react-router';
+import { useNavigate, useParams } from 'react-router';
 import { dateFormatter } from '../helper/dateformatter';
 
 function TempClassic() {
@@ -19,7 +19,7 @@ function TempClassic() {
   const dispatch = useDispatch();
   const myRefOpen = useRef(null);
   const myRefBack = useRef(null);
-  const history = useHistory();
+  const navigate = useNavigate();
   const [coverPhotoPath, setCoverPhotoPath] = useState();
 
 
@@ -107,9 +107,9 @@ function TempClassic() {
   const onClickDownload = () => {
     if (collection.downloadOption) {
       if (collection.password) {
-        history.push(`/privacy/${id}`);
+        navigate.push(`/privacy/${id}`);
       } else {
-        history.push(`/download/${id}`);
+        navigate.push(`/download/${id}`);
       }
     } else {
       dispatch(

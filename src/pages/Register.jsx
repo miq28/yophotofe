@@ -1,7 +1,7 @@
 import React, { useState } from 'react';
 import axios from 'axios';
 import { Button, Form } from 'react-bootstrap';
-import { Link, useHistory } from 'react-router-dom';
+import { Link, useNavigate } from 'react-router-dom';
 import { useDispatch, useSelector } from 'react-redux';
 import { URL_API } from '../helper/url';
 import { toastError, toastSuccess } from '../redux/actions';
@@ -13,12 +13,12 @@ function Login() {
   const [bsName, setBsName] = useState('');
   const [email, setEmail] = useState('');
   const [password, setPassword] = useState('');
-  const history = useHistory();
+  const navigate = useNavigate();
   const auth = useSelector((state) => state.auth);
   const dispatch = useDispatch();
 
   if (auth.isLogin === true) {
-    history.push('/');
+    navigate.push('/');
   }
 
   const handleSubmit = async (event) => {

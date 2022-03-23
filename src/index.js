@@ -9,6 +9,16 @@ import reportWebVitals from './reportWebVitals';
 import Reducers from './redux/reducers';
 import thunk from 'redux-thunk';
 
+// import { ThemeProvider, createMuiTheme, makeStyles } from '@material-ui/core/styles';
+
+// const theme = createMuiTheme();
+
+// const useStyles = makeStyles((theme) => {
+//   root: {
+//     // some CSS that access to theme
+//   }
+// });
+
 const middleware = [thunk];
 
 const devTools =
@@ -21,7 +31,10 @@ const store = createStore(Reducers, devTools);
 ReactDOM.render(
   <Provider store={store}>
     <BrowserRouter>
+      {/* <ThemeProvider theme={theme}> */}
         <App />
+        {/* </ThemeProvider> */}
+
     </BrowserRouter>
   </Provider>,
   document.getElementById('root')

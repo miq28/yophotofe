@@ -1,5 +1,5 @@
-import { AddBoxSharp } from "@mui/icons-material";
 import jwt_decode from "jwt-decode";
+import log from '../../utils/logger';
 
 function timeSince(seconds) {
   const intervals = [
@@ -18,50 +18,62 @@ function timeSince(seconds) {
 
 
 let initialState = {
-  id: '',
-  token: '',
-  isLogin: false,
-  name: '',
-  businessName: '',
-  photo: '',
-  address: '',
-  email: '',
-};
+  id: null,
+  membership: null,
+  role: null,
+  token: null,
+  token_exp: null,
+  token_status: null,
+  isLogin: null,
+  name: null,
+  businessName: null,
+  photo: null,
+  address: null,
+  email: null
+}
 
+let tokenStatusState;
+let isLoginState;
 const jwToken = localStorage.getItem('token')
 if (jwToken) {
   try {
-    console.log('TOKEN FOUND 👍, checking validity...')
+    log.info('TOKEN FOUND 👍, checking validity...')
     const decoded = jwt_decode(jwToken);
 
     const dtDiff = Math.round(decoded.exp - Date.now() / 1000)
 
-    let loginState;
+    
     if (dtDiff > 0) {
       
-      console.log(`Nice, token will still be valid for the next ${timeSince(dtDiff)} 🤗`)
-      loginState = true;
+      log.info(`Nice, token will still be valid for the next ${timeSince(dtDiff)} 🤗`)
+      tokenStatusState = 'VALID';
+      isLoginState = true;
     }
     else {
-      console.log(`Oh no.. token has expired ${timeSince(Math.abs(dtDiff))} ago 😮😬`)
-      loginState = true;
+      log.warn(`Oh no.. token has expired ${timeSince(Math.abs(dtDiff))} ago 😮😬`)
+      tokenStatusState = 'EXPIRED';
+      isLoginState = false;
     }
     // if no error, update initial state
     initialState = {
       id: decoded.id,
+      membership: decoded.membership,
+      role: decoded.role,
       token: jwToken,
-      isLogin: loginState,
-      name: decoded.userName,
-      businessName: decoded.userName,
-      photo: '',
-      address: '',
-      email: '',
+      token_exp: decoded.exp,
+      token_status: tokenStatusState,
+      isLogin: isLoginState,
+      name: decoded.name,
+      businessName: decoded.name,
+      photo: decoded.avatar,
+      address: decoded.address,
+      email: decoded.email,
     }
   } catch (err) {
-    console.log(err)
+    log.info(err)
   }
 } else {
-  console.log('jwToken not exist is localStorage')
+  log.info('jwToken not exist is localStorage')
 }
 
 const authReducers = (state = initialState, action) => {
@@ -73,13 +85,17 @@ const authReducers = (state = initialState, action) => {
     case 'LOGOUT':
       return {
         ...state,
-        id: '',
-        token: '',
-        name: '',
-        businessName: '',
-        photo: '',
-        address: '',
-        email: '',
+        id: null,
+        membership: null,
+        role: null,
+        token: null,
+        token_exp: null,
+        token_status: null,
+        name: null,
+        businessName: null,
+        photo: null,
+        address: null,
+        email: null,
         isLogin: false,
       };
     default:
