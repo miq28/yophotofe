@@ -36,6 +36,7 @@ import TempClassic from './pages/TempClassic';
 import TempDarkmode from './pages/TempDarkmode';
 import TempMinimalism from './pages/TempMinimalism';
 import Miq from './pages/test';
+import Home from './pages/Home';
 import Upload from './pages/upload/Upload';
 import UserAll from './pages/userAll/UserAll';
 import { toastSuccess, toastWarning } from './redux/actions/toastActions';
@@ -167,8 +168,8 @@ function App() {
         pauseOnHover
       />
       <Routes>
-        {/* <Route exact path="/" component={Home} /> */}
-        <Route path="/" element={<Miq />} />
+        <Route exact path="/" component={<Home />} />
+        {/* <Route path="/" element={<Miq />} /> */}
         <Route path="/register" element={<Register />} />
         <Route path="/login" element={<Login />} />
         <Route path="/privacy/:id" element={<Privacy />} />
