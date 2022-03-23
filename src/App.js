@@ -168,7 +168,7 @@ function App() {
         pauseOnHover
       />
       <Routes>
-        <Route exact path="/" component={<Home />} />
+        <Route path="/" element={<Home />} />
         <Route path="/miq" element={<Miq />} />
         <Route path="/register" element={<Register />} />
         <Route path="/login" element={<Login />} />
